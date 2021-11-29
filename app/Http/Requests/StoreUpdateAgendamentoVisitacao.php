@@ -25,7 +25,7 @@ class StoreUpdateAgendamentoVisitacao extends FormRequest
     {
         return [
             'naturalidade'              =>          'nullable|min:3|max:255',
-            'cpf'                       =>          'nullable|min:14|max:14',
+            'cpf'                       =>          'nullable|min:11|max:15',
             'passaporte'                =>          'nullable|min:3|max:255',
             'nome_completo'             =>          'nullable|min:3|max:255',
             'data_nascimento'           =>          'nullable|min:3|max:255',
@@ -36,11 +36,11 @@ class StoreUpdateAgendamentoVisitacao extends FormRequest
 
             'dependente_nome'           =>          'nullable|min:3|max:255',
             'dependente_data_nascimento'=>          'nullable|min:3|max:255',
-            'dependente_cpf'            =>          'nullable|min:3|max:255',
+            'dependente_cpf'            =>          'nullable|min:11|max:15',
 
             'dependente2_nome'          =>          'nullable|min:3|max:255',
             'dependente2_data_nascimento'=>          'nullable|min:3|max:255',
-            'dependente2_cpf'           =>          'nullable|min:3|max:255',
+            'dependente2_cpf'           =>          'nullable|min:11|max:15',
 
             'horario_visitacao_id'      =>          'required|min:1|max:255',
             

@@ -62,7 +62,9 @@
                         <form action="/agendamento/fabrica/create" method="POST">
                             @csrf
 							<div class="row">
+								
 								<div class="col-md-6">
+									<label>Naturalidade</label>
 									<select class="custom-select" 
                                         name="naturalidade" placeholder="Naturalidade"
                                         id="naturalidade" required>
@@ -71,9 +73,11 @@
                                     </select> 
 								</div>
 								<div class="col-md-6">
+									<label>Documento</label>
 									<input type="text" name="passaporte" id="passaporte"
                                         class="d-none form-control" placeholder="Passaporte"
                                     >
+									
                                     <input type="text" name="cpf" id="cpf"
                                         class="form-control" placeholder="CPF" 
                                     >
@@ -81,11 +85,13 @@
 							</div>
 							<div class="row">
 								<div class="col-md-6">
+									<label>Nome completo</label>
 									<input type="text" name="nome_completo" 
                                         class="form-control" placeholder="Nome completo" required
                                     >
 								</div>
 								<div class="col-md-6">
+									<label>Data Nascimento</label>
                                     <input type="date" name="data_nascimento" 
                                         class="form-control" placeholder="Data Nascimento" required
                                     >
@@ -93,16 +99,19 @@
 							</div>
 							<div class="row">
 								<div class="col-md-6">
+									<label>Contato</label>
                                     <input type="text" name="contato" 
                                         class="form-control" placeholder="Contato" required
                                     >
 								</div>
 								<div class="col-md-6">
+									<label>E-mail</label>
 									<input type="email" name="email" 
                                     class="form-control" placeholder="E-mail" required
                                     >
 								</div>
 							</div>
+							<br>
 							<div class="row">
 								<div class="col-md-6">
                                     <select class="form-control" 
@@ -126,18 +135,22 @@
 									id="btn_dependentes">Dependentes ?</button>
                                 </div>
                             </div>
+							<br>
                             <div class="row" id="dependente01" style="display: none">
 								<div class="col-md-3">
+									<label>Nome</label>
 									<input type="text" name="dependente_nome" 
                                     class="form-control" placeholder="Nome completo" 
                                     >
 								</div>
                                 <div class="col-md-3">
+									<label>CPF</label>
                                     <input type="text" name="dependente_cpf" id="dependente_cpf"
                                     class="form-control" placeholder="CPF" 
                                     >
 								</div>
                                 <div class="col-md-3">
+									<label>Data Nascimento</label>
                                     <input type="date" name="dependente_data_nascimento" 
                                     class="form-control" placeholder="Data Nascimento" 
                                     >
@@ -146,16 +159,19 @@
                             <hr class="mb-3" >
                             <div class="row" id="dependente02" style="display: none">
 								<div class="col-md-3">
+									<label>Nome</label>
 									<input type="text" name="dependente2_nome" 
                                     class="form-control" placeholder="Nome completo" 
                                     >
 								</div>
                                 <div class="col-md-3">
+									<label>CPF</label>
                                     <input type="text" name="dependente2_cpf" id="dependente2_cpf"
                                     class="form-control" placeholder="CPF" 
                                     >
 								</div>
                                 <div class="col-md-3">
+									<label>Data Nascimento</label>
                                     <input type="date" name="dependente2_data_nascimento" 
                                     class="form-control" placeholder="Data Nascimento" 
                                     >
