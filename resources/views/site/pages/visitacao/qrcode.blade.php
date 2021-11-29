@@ -164,9 +164,8 @@
             <p id="descricao-page-comprovante-text" style="color: rgb(60, 145, 202);"></p>
             <h1 class="ui header" id="texto-comprovacao"></h1>
 
-          
             <h1 class="ui header" id="texto-comprovacao">Inscrição realizada para
-                {{-- <b>{{ $DataEspecifica->format('d/m/Y \à\s H\hi\m\i\n') }}</b> --}}
+                {{$row->horario_visitacao_data}} -  {{$row->horario_visitacao_hora_inicio}} 
             </h1>
             <img src="https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl='{{$code}}'">
             <div style="max-width: 500px;">
@@ -249,6 +248,11 @@
         <img src="https://eventos.cultura.am.gov.br/Cartela-natal-100.jpg"
             style="width: 100%; padding: 30px; max-width: 900px;">
     </footer>
+    <script>
+        function imprimir(){
+            window.print();
+        }
+    </script>
 </body>
 
 </html>

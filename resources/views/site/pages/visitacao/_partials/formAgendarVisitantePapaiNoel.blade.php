@@ -69,17 +69,13 @@
                                         name="naturalidade" placeholder="Naturalidade"
                                         id="naturalidade" required>
                                         <option value="Brasileiro">Brasileiro</option>
-                                        <option value="Estrangeiro">Sou Estrangeiro</option>
+                                        <option value="Brasileiro">Sou Estrangeiro</option>
                                     </select> 
 								</div>
 								<div class="col-md-6">
 									<label>Documento</label>
-									<input type="text" name="passaporte" id="passaporte"
-                                        class="d-none form-control" placeholder="Passaporte"
-                                    >
-									
-                                    <input type="text" name="cpf" id="cpf"
-                                        class="form-control" placeholder="CPF" 
+                                    <input type="text" name="cpf" id="cpf" required
+                                        class="form-control" placeholder="CPF ou Passaporte" 
                                     >
 								</div>
 							</div>
@@ -198,36 +194,9 @@
 							</small>
 						</div>
 					</div>
-					{{-- <div class="alert alert-danger mt-2" role="alert">
-						Vagas para Fábrica do Papai Noel esgotadas, em breve abriremos novas vagas.
-					</div> --}}
-					{{-- <div class="row mt-2">
-						<div class="col-md-12">
-							<h6>Selecione um espaço</h6>
-						</div>
-					</div>
-					<div class="row mt-2">
-						<div class="col-md-12">
-							<select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
-                             <option value=""> -- Selecione --</option>     
-                            </select> 
-						</div>
-					</div> --}}
+				
 					<div class="row mt-4 d-print-none">
-						<div class="col-md-6">
-							<label for="calendario">Escolha um dia</label>
-							
-								<select class="custom-select" 
-											name="horario_visitacao_data" placeholder="Escolha o dia"
-											id="horario_visitacao_data" required>
-												<option value="01/12/2021">01/12/2021 - Quarta</option>
-												<option value="02/12/2021">02/12/2021 - Quinta</option>
-												<option value="03/12/2021">03/12/2021 - Sexta</option>
-												<option value="04/12/2021">04/12/2021 - Sábado</option>
-												<option value="05/12/2021">05/12/2021 - Domingo</option>
-								</select> 
-							
-						</div>
+						
 						<div class="col-md-6 d-print-none">
 							<div class="row">
 								<div class="col-md-12">
@@ -238,75 +207,19 @@
 								<div class="col-md-12">
                                     <select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
 										@foreach($horarios_visitacao as $horario)
-											@if ($horario->horario_visitacao_data == "01/12/2021")
-												<option value="{{ $horario->id ?? old('horario_visitacao_id') }}">
-													{{$horario->horario_visitacao_hora_inicio}} ( {{ $horario->horario_visitacao_numero_vagas}} vagas )
+											
+												<option value="{{ $horario->id  }}"> 
+													{{$horario->horario_visitacao_data}} - 
+													{{$horario->horario_visitacao_hora_inicio}} 
+													( {{ $horario->horario_visitacao_numero_vagas}} vagas )
 												</option>
-											@endif
+											
                                         @endforeach
                                     </select> 
 								</div>
 							</div>
-							<div class="row d-print-none" id="02" style="display: none">
-								<div class="col-md-12">
-                                    <select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
-                                        
-										@foreach($horarios_visitacao as $horario)
-											@if ($horario->horario_visitacao_data == "02/12/2021")
-												<option value="{{ $horario->id ?? old('horario_visitacao_id') }}">
-													{{$horario->horario_visitacao_hora_inicio}} ( {{ $horario->horario_visitacao_numero_vagas}} vagas )
-												</option>
-											@endif
-                                               
-                                        @endforeach
-                                    </select> 
-								</div>
-							</div>
-							<div class="row d-print-none" id="03" style="display: none">
-								<div class="col-md-12">
-                                    <select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
-                                        
-										@foreach($horarios_visitacao as $horario)
-											@if ($horario->horario_visitacao_data == "03/12/2021")
-												<option value="{{ $horario->id ?? old('horario_visitacao_id') }}">
-													{{$horario->horario_visitacao_hora_inicio}} ( {{ $horario->horario_visitacao_numero_vagas}} vagas )
-												</option>
-											@endif
-                                               
-                                        @endforeach
-                                    </select> 
-								</div>
-							</div>
-							<div class="row d-print-none" id="04" style="display: none">
-								<div class="col-md-12">
-                                    <select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
-                                        
-										@foreach($horarios_visitacao as $horario)
-											@if ($horario->horario_visitacao_data == "04/12/2021")
-												<option value="{{ $horario->id ?? old('horario_visitacao_id') }}">
-													{{$horario->horario_visitacao_hora_inicio}} ( {{ $horario->horario_visitacao_numero_vagas}} vagas )
-												</option>
-											@endif
-                                               
-                                        @endforeach
-                                    </select> 
-								</div>
-							</div>
-							<div class="row d-print-none" id="05" style="display: none">
-								<div class="col-md-12">
-                                    <select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
-                                        
-										@foreach($horarios_visitacao as $horario)
-											@if ($horario->horario_visitacao_data == "05/12/2021")
-												<option value="{{ $horario->id ?? old('horario_visitacao_id') }}">
-													{{$horario->horario_visitacao_hora_inicio}} ( {{ $horario->horario_visitacao_numero_vagas}} vagas )
-												</option>
-											@endif
-                                               
-                                        @endforeach
-                                    </select> 
-								</div>
-							</div>
+						
+							
 							
 						</div>
 					</div>
@@ -341,18 +254,8 @@
 		    $(document).ready(() => {
 
 				count = 0;
-                const cpf = $('#cpf')
-                        $('#naturalidade').change(() => {
-                            const selectSelecionado = $('#naturalidade').children('option:selected').val()
-                            if(selectSelecionado === 'Estrangeiro'){
-                                cpf.addClass('d-none');
-                                $('#passaporte').removeClass('d-none')
-                                // $('#div_passaporte').css("display", "block")
-                            }else{
-                                cpf.removeClass('d-none');
-                                $('#passaporte').addClass('d-none')
-                            }
-                        })
+             
+                       
                         $('#deficiente').change(() => {
                             const selectSelecionado = $('#deficiente').children('option:selected').val()
                             if(selectSelecionado === 'Não'){

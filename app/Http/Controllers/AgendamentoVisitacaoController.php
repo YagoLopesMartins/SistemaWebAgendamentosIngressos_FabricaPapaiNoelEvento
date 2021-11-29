@@ -36,25 +36,28 @@ class AgendamentoVisitacaoController extends Controller
     {
         $data = [];
         $data = $request->all();
-        $dia = $data["horario_visitacao_data"];
+     
         $horario_id = $data["horario_visitacao_id"];
+        //dd($horario_id);
         $nome = $data["nome_completo"];
         $cpf = $data["cpf"];
         $passaporte = $data["passaporte"];
 
-        $code = $dia.$horario_id.$cpf.$nome;
+        $code = $horario_id.$cpf.$nome;
         
         // cadastro
         $visitante_cadastrato = $this->repository->create($data);
 
         // diminuir no banco coluna vagas
         $row = HorariosVisitacao::where('id', $horario_id)->first();
-        $row->horario_visitacao_numero_vagas = ( $row->horario_visitacao_numero_vagas - 1);
+        HorariosVisitacao::where('id', $horario_id)->update([
+            'horario_visitacao_numero_vagas' => $row->horario_visitacao_numero_vagas - 1
+        ]);
 
         $lista_horarios = $this->repository->all();
     
         // gerar qr-code
         return view('site.pages.visitacao.qrcode', 
-            compact('visitante_cadastrato', 'code'));
+            compact('visitante_cadastrato', 'code', 'row'));
     }
 }

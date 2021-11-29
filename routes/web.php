@@ -22,6 +22,3 @@ Route::get('agendamento/fabrica',                    [AgendamentoVisitacaoContro
 
 Route::get('horarios',                    [HorariosVisitacaoController::class, 'index'  ]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
