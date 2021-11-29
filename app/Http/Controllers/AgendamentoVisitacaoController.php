@@ -41,10 +41,9 @@ class AgendamentoVisitacaoController extends Controller
         //dd($horario_id);
         $nome = $data["nome_completo"];
         $cpf = $data["cpf"];
-        $passaporte = $data["passaporte"];
+        
 
         $code = $horario_id.$cpf.$nome;
-        
         // cadastro
         $visitante_cadastrato = $this->repository->create($data);
 
