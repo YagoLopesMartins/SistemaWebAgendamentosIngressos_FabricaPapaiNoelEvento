@@ -1,4 +1,4 @@
-composer require simplesoftwareio/simple-qrcode "~4"composer require simplesoftwareio/simple-qrcode "~4"<?php
+<?php
 
 return [
 

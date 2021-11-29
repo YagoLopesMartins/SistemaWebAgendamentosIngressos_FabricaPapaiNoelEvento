@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comprovante de Inscrição</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>QrCode</title>
     <style>
         body {
             background-image: url(snow-fundo.png);
@@ -146,12 +145,14 @@
 
     </style>
 </head>
-
 <body>
+
     <div id="wrap-all">
         <center style="padding-top: 16px">
             <button type="button" onclick="imprimir()">Imprimir comprovante</button>
         </center>
+        
+
         <div id="div-principal" align=center>
             <img src="https://eventos.cultura.am.gov.br/logo-christmas.png" width="130px" style="margin-top: -30px;">
             <img src="https://eventos.cultura.am.gov.br/logo-1.png" width="75px" style="margin-top: -30px;">
@@ -163,32 +164,15 @@
 
             <p id="descricao-page-comprovante-text" style="color: rgb(60, 145, 202);"></p>
             <h1 class="ui header" id="texto-comprovacao"></h1>
-
-          
-            <h1 class="ui header" id="texto-comprovacao">Inscrição realizada para
-                {{-- <b>{{ $DataEspecifica->format('d/m/Y \à\s H\hi\m\i\n') }}</b> --}}
-            </h1>
-            <img src="https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl='{{$code}}'">
-            <div style="max-width: 500px;">
-                <p id="descricao-page-comprovante-text"
-                    style="padding-top: 15px; padding-bottom: 15px; font-size: 20px important!;">Salve este
-                    comprovante, você vai precisar apresentar (impresso ou na tela do celular) na entrada do evento
-                    junto com o documento de
-                    identificação cadastrado.</p>
-            </div>
         </div>
-
-        <div id="div-infos">
-            <div class="divider div-transparent"></div>
-            <div id="infos-espaco-visitacao">
-                {{-- <h1 class="ui header" id="texto-title">Informações do Evento</h1> --}}
-                <div class="divider div-transparent" style="padding-bottom: 10px;"></div>
-                {{-- <p id="label-espaco-comprovante"><b>Título:</b> {{ $event->name }}</p>
-                <p id="label-espaco-comprovante"><b>Local:</b> {{ $place->name }}</p>
-                <p id="label-horario-comprovante"><b>Data:</b> {{ $DataEspecifica->format('d/m/Y \à\s H\hi\m\i\n') }} --}}
-                </p>
-                {{-- <p id="label-espaco-comprovante"><b>Descrição: </b>{{ $event->information }}</p> --}}
-            </div>
+    
+        <img src="https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl='{{$code}}'">
+        <div style="max-width: 500px;">
+            <p id="descricao-page-comprovante-text"
+                style="padding-top: 15px; padding-bottom: 15px; font-size: 20px important!;">Salve este
+                comprovante, você vai precisar apresentar (impresso ou na tela do celular) na entrada do evento
+                junto com o documento de
+                identificação cadastrado.</p>
         </div>
 
         <div id="div-infos">
@@ -204,51 +188,40 @@
                 <p id="label-documento-comprovante"><b>Contato: {{ $visitante_cadastrato->contato ?? ''}}</b> </p>
                 <p id="label-documento-comprovante"><b>Deficiência: {{ $visitante_cadastrato->deficiencia ?? ''}}</b> </p>
             </div>
-
-            <hr>
-
-            <div id="infos-visitante-visitacao">
-                <p id="label-nome-comprovante"><b>Nome: {{ $visitante_cadastrato->dependente_nome }}</b> </p>
-                <p id="label-documento-comprovante"><b>Data Nascimento: {{ $visitante_cadastrato->dependente_data_nascimento ?? ''}}</b> </p>
-                <p id="label-documento-comprovante"><b>CPF: {{ $visitante_cadastrato->dependente_cpf ?? ''}}</b> </p>
-            </div>
-            <div id="infos-visitante-visitacao">
-                <p id="label-nome-comprovante"><b>Nome: {{ $visitante_cadastrato->dependente2_nome }}</b> </p>
-                <p id="label-documento-comprovante"><b>Data Nascimento: {{ $visitante_cadastrato->dependente2_data_nascimento ?? ''}}</b> </p>
-                <p id="label-documento-comprovante"><b>CPF: {{ $visitante_cadastrato->dependente2_cpf ?? ''}}</b> </p>
-            </div>
-
         </div>
-
-
-
-        <div id="observacoes-importantes">
-            <h1 class="ui header" id="texto-title">No dia do evento, lembre-se que:</h1>
-            <div class="divider div-transparent"></div>
-            <div id="div-importantes-observacoes">
-                <b>
-                    <p id="label-documento-comprovante"> ● É necessário apresentar este comprovante e documento de
-                        identificação com foto;</p>
-                    <p id="label-documento-comprovante"> ● O comprovante de agendamento é pessoal, intransferível e só é
-                        válido para o dia e horário presentes no mesmo, não sendo permitido a utilização dele em dias e
-                        horários diferentes;</p>
-                    <p id="label-documento-comprovante"> ● De acordo com o Decreto do Governo do Estado do Amazonas Nº
-                        44.581 de 22 DE SETEMBRO DE 2021, é obrigatória a apresentação do cartão de vacinação da
-                        COVID-19, com o ciclo de vacinação completo - dose única ou as duas doses, tanto para visitantes
-                        brasileiros quanto para estrangeiros, exceto menores de idade que ainda não estejam contemplados
-                        na faixa etária de vacinação;</p>
-                    <p id="label-documento-comprovante"> ● Será proibida a entrada de visitantes com sintomas de gripe e
-                        febre;</p>
-                    <p id="label-documento-comprovante"> ● Outras informações poderão ser acrescentadas ao evento
-                        principal.</p>
-            </div>
         </div>
     </div>
-
+    <div id="observacoes-importantes">
+        <h1 class="ui header" id="texto-title">No dia do evento, lembre-se que:</h1>
+        <div class="divider div-transparent"></div>
+        <div id="div-importantes-observacoes">
+            <b>
+                <p id="label-documento-comprovante"> ● É necessário apresentar este comprovante e documento de
+                    identificação com foto;</p>
+                <p id="label-documento-comprovante"> ● O comprovante de agendamento é pessoal, intransferível e só é
+                    válido para o dia e horário presentes no mesmo, não sendo permitido a utilização dele em dias e
+                    horários diferentes;</p>
+                <p id="label-documento-comprovante"> ● De acordo com o Decreto do Governo do Estado do Amazonas Nº
+                    44.581 de 22 DE SETEMBRO DE 2021, é obrigatória a apresentação do cartão de vacinação da
+                    COVID-19, com o ciclo de vacinação completo - dose única ou as duas doses, tanto para visitantes
+                    brasileiros quanto para estrangeiros, exceto menores de idade que ainda não estejam contemplados
+                    na faixa etária de vacinação;</p>
+                <p id="label-documento-comprovante"> ● Será proibida a entrada de visitantes com sintomas de gripe e
+                    febre;</p>
+                <p id="label-documento-comprovante"> ● Outras informações poderão ser acrescentadas ao evento
+                    principal.</p>
+        </div>
+    </div>
+    </div>
+    
     <footer style="margin: auto; text-align: center;">
         <img src="https://eventos.cultura.am.gov.br/Cartela-natal-100.jpg"
             style="width: 100%; padding: 30px; max-width: 900px;">
     </footer>
+    <script>
+        function imprimir(){
+            window.print();
+        }
+    </script>
 </body>
-
 </html>
