@@ -11,6 +11,10 @@ class HorariosVisitacao extends Model
     protected $primaryKey = 'id';
     protected $guarded = [];
 
+    public function agendamento(){
+        return $this->hashOne(AgendamentoVisitacao::class, 'id'); 
+    }
+
     public $timestamps = true;
 
     protected $fillable = [

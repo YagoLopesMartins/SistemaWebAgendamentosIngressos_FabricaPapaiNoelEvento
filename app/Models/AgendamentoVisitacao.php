@@ -13,6 +13,10 @@ class AgendamentoVisitacao extends Model
 
     public $timestamps = true;
 
+    public function horarios(){
+        return $this->hashOne(HorariosVisitacao::class, 'id'); 
+    }
+
     protected $fillable = [
         // Visitante
         'naturalidade', 'cpf','passaporte','nome_completo','data_nascimento',
