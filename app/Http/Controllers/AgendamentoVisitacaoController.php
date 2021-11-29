@@ -34,14 +34,25 @@ class AgendamentoVisitacaoController extends Controller
     // public function store(Request $request)
     public function store(StoreUpdateAgendamentoVisitacao $request)
     {
+        
+        $n = 1;
+        if($request->dependente_nome){
+            $n++;
+        }
+        if($request->dependente2_nome){
+            $n++;
+        }
+
         $data = [];
         $data = $request->all();
+        //dd($data);
      
         $horario_id = $data["horario_visitacao_id"];
         //dd($horario_id);
         $nome = $data["nome_completo"];
         $cpf = $data["cpf"];
         
+       
 
         $code = $horario_id.$cpf.$nome;
         // cadastro
@@ -50,7 +61,7 @@ class AgendamentoVisitacaoController extends Controller
         // diminuir no banco coluna vagas
         $row = HorariosVisitacao::where('id', $horario_id)->first();
         HorariosVisitacao::where('id', $horario_id)->update([
-            'horario_visitacao_numero_vagas' => $row->horario_visitacao_numero_vagas - 1
+            'horario_visitacao_numero_vagas' => $row->horario_visitacao_numero_vagas - $n
         ]);
 
         $lista_horarios = $this->repository->all();
