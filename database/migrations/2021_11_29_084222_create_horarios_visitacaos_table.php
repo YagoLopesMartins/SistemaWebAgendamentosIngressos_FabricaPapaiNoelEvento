@@ -15,6 +15,7 @@ class CreateHorariosVisitacaosTable extends Migration
     {
         Schema::create('horarios_visitacaos', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->nullable();
             $table->string('horario_visitacao_data');
             $table->string('horario_visitacao_hora_chegada_estacao');
             $table->string('horario_visitacao_hora_inicio');

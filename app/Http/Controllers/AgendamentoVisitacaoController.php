@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpdateAgendamentoVisitacao;
 use App\Models\AgendamentoVisitacao;
 use App\Models\HorariosVisitacao;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +25,8 @@ class AgendamentoVisitacaoController extends Controller
         ->where("horario_visitacao_numero_vagas", ">", 0)
         ->get();
 
+       // $lista_horarios = $this->repository->all();
+
        // $horarios_visitacao = $this->horarios_visitacao->all();
             return view('site.pages.visitacao.index', 
                  compact('horarios_visitacao'));    
@@ -31,10 +34,27 @@ class AgendamentoVisitacaoController extends Controller
     // public function store(Request $request)
     public function store(StoreUpdateAgendamentoVisitacao $request)
     {
-        dd($request->all());
-        $this->repository->create($request->all());
+        $data = [];
+        $data = $request->all();
+        $dia = $data["horario_visitacao_data"];
+        $horario_id = $data["horario_visitacao_id"];
+        $nome = $data["nome_completo"];
+        $cpf = $data["cpf"];
+        $passaporte = $data["passaporte"];
+
+        $code = $dia.$horario_id.$cpf.$nome;
+        
+        // cadastro
+        $visitante_cadastrato = $this->repository->create($data);
+
+        // diminuir no banco coluna vagas
+        $row = HorariosVisitacao::where('id', $horario_id)->first();
+        $row->horario_visitacao_numero_vagas = ( $row->horario_visitacao_numero_vagas - 1);
+
+        $lista_horarios = $this->repository->all();
+    
         // gerar qr-code
-        return redirect('visitacoes')
-            ->withSuccess('Visitante cadastrado com sucesso!');
+        return view('site.pages.visitacao.qrcode', 
+            compact('visitante_cadastrato', 'code'));
     }
 }

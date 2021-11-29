@@ -15,6 +15,7 @@ class CreateAgendamentoVisitacaosTable extends Migration
     {
         Schema::create('agendamento_visitacaos', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->nullable();
             $table->enum('naturalidade', ['Brasileiro', 'Sou Estrangeiro']);
             $table->string('cpf')->nullable();
             $table->string('passaporte')->nullable();

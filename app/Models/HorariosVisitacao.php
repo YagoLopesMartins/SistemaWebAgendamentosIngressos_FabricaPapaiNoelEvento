@@ -18,6 +18,7 @@ class HorariosVisitacao extends Model
     public $timestamps = true;
 
     protected $fillable = [
+            'uuid',
              'horario_visitacao_data', 
              'horario_visitacao_hora_chegada_estacao', 
              'horario_visitacao_hora_inicio', 

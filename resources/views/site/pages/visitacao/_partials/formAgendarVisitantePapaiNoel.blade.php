@@ -71,11 +71,11 @@
                                     </select> 
 								</div>
 								<div class="col-md-6">
-									<input type="text" name="passaporte" id="passaporte" required
+									<input type="text" name="passaporte" id="passaporte"
                                         class="d-none form-control" placeholder="Passaporte"
                                     >
                                     <input type="text" name="cpf" id="cpf"
-                                        class="form-control" placeholder="CPF" required
+                                        class="form-control" placeholder="CPF" 
                                     >
 								</div>
 							</div>
@@ -121,41 +121,43 @@
                             <hr class="mb-3">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h4 class="mb-3">Dependente</h4>
+                                    <button type="button" onclick="addDep()"
+									class="btn btn-success" 
+									id="btn_dependentes">Dependentes ?</button>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" id="dependente01" style="display: none">
 								<div class="col-md-3">
 									<input type="text" name="dependente_nome" 
-                                    class="form-control" placeholder="Nome completo" required
+                                    class="form-control" placeholder="Nome completo" 
                                     >
 								</div>
                                 <div class="col-md-3">
                                     <input type="text" name="dependente_cpf" id="dependente_cpf"
-                                    class="form-control" placeholder="CPF" required
+                                    class="form-control" placeholder="CPF" 
                                     >
 								</div>
                                 <div class="col-md-3">
                                     <input type="date" name="dependente_data_nascimento" 
-                                    class="form-control" placeholder="Data Nascimento" required
+                                    class="form-control" placeholder="Data Nascimento" 
                                     >
 								</div>
 							</div>
-                            <hr class="mb-3">
-                            <div class="row">
+                            <hr class="mb-3" >
+                            <div class="row" id="dependente02" style="display: none">
 								<div class="col-md-3">
 									<input type="text" name="dependente2_nome" 
-                                    class="form-control" placeholder="Nome completo" required
+                                    class="form-control" placeholder="Nome completo" 
                                     >
 								</div>
                                 <div class="col-md-3">
                                     <input type="text" name="dependente2_cpf" id="dependente2_cpf"
-                                    class="form-control" placeholder="CPF" required
+                                    class="form-control" placeholder="CPF" 
                                     >
 								</div>
                                 <div class="col-md-3">
                                     <input type="date" name="dependente2_data_nascimento" 
-                                    class="form-control" placeholder="Data Nascimento" required
+                                    class="form-control" placeholder="Data Nascimento" 
                                     >
 								</div>
 							</div>
@@ -196,35 +198,100 @@
 						</div>
 					</div> --}}
 					<div class="row mt-4 d-print-none">
-						{{-- <div class="col-md-6">
+						<div class="col-md-6">
 							<label for="calendario">Escolha um dia</label>
-							<input 
-								type="text"
-								class="form-control"
-								id="calendario"
-								name="Espaco[dia]"
-								onfocus="(this.type='date')"
-								list="opcoes" required
-							>
-						</div> --}}
+							
+								<select class="custom-select" 
+											name="horario_visitacao_data" placeholder="Escolha o dia"
+											id="horario_visitacao_data" required>
+												<option value="01/12/2021">01/12/2021 - Quarta</option>
+												<option value="02/12/2021">02/12/2021 - Quinta</option>
+												<option value="03/12/2021">03/12/2021 - Sexta</option>
+												<option value="04/12/2021">04/12/2021 - Sábado</option>
+												<option value="05/12/2021">05/12/2021 - Domingo</option>
+								</select> 
+							
+						</div>
 						<div class="col-md-6 d-print-none">
 							<div class="row">
 								<div class="col-md-12">
 									<label>Agora escolha um horário para visitação</label>
 								</div>
 							</div>
-							<div class="row d-print-none">
+							<div class="row d-print-none" id="01" style="display: flex">
 								<div class="col-md-12">
                                     <select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
-                                        {{-- <option value=""> -- Selecione --</option> --}}
-                                        @foreach($horarios_visitacao as $horario)
-                                                <option value="{{ $horario->id ?? old('horario_visitacao_id') }}">
-                                                    {{$horario->horario_visitacao_hora_inicio}} ( {{ $horario->horario_visitacao_numero_vagas}} vagas )
-                                                </option>
+										@foreach($horarios_visitacao as $horario)
+											@if ($horario->horario_visitacao_data == "01/12/2021")
+												<option value="{{ $horario->id ?? old('horario_visitacao_id') }}">
+													{{$horario->horario_visitacao_hora_inicio}} ( {{ $horario->horario_visitacao_numero_vagas}} vagas )
+												</option>
+											@endif
                                         @endforeach
                                     </select> 
 								</div>
 							</div>
+							<div class="row d-print-none" id="02" style="display: none">
+								<div class="col-md-12">
+                                    <select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
+                                        
+										@foreach($horarios_visitacao as $horario)
+											@if ($horario->horario_visitacao_data == "02/12/2021")
+												<option value="{{ $horario->id ?? old('horario_visitacao_id') }}">
+													{{$horario->horario_visitacao_hora_inicio}} ( {{ $horario->horario_visitacao_numero_vagas}} vagas )
+												</option>
+											@endif
+                                               
+                                        @endforeach
+                                    </select> 
+								</div>
+							</div>
+							<div class="row d-print-none" id="03" style="display: none">
+								<div class="col-md-12">
+                                    <select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
+                                        
+										@foreach($horarios_visitacao as $horario)
+											@if ($horario->horario_visitacao_data == "03/12/2021")
+												<option value="{{ $horario->id ?? old('horario_visitacao_id') }}">
+													{{$horario->horario_visitacao_hora_inicio}} ( {{ $horario->horario_visitacao_numero_vagas}} vagas )
+												</option>
+											@endif
+                                               
+                                        @endforeach
+                                    </select> 
+								</div>
+							</div>
+							<div class="row d-print-none" id="04" style="display: none">
+								<div class="col-md-12">
+                                    <select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
+                                        
+										@foreach($horarios_visitacao as $horario)
+											@if ($horario->horario_visitacao_data == "04/12/2021")
+												<option value="{{ $horario->id ?? old('horario_visitacao_id') }}">
+													{{$horario->horario_visitacao_hora_inicio}} ( {{ $horario->horario_visitacao_numero_vagas}} vagas )
+												</option>
+											@endif
+                                               
+                                        @endforeach
+                                    </select> 
+								</div>
+							</div>
+							<div class="row d-print-none" id="05" style="display: none">
+								<div class="col-md-12">
+                                    <select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
+                                        
+										@foreach($horarios_visitacao as $horario)
+											@if ($horario->horario_visitacao_data == "05/12/2021")
+												<option value="{{ $horario->id ?? old('horario_visitacao_id') }}">
+													{{$horario->horario_visitacao_hora_inicio}} ( {{ $horario->horario_visitacao_numero_vagas}} vagas )
+												</option>
+											@endif
+                                               
+                                        @endforeach
+                                    </select> 
+								</div>
+							</div>
+							
 						</div>
 					</div>
 				</section>
@@ -233,7 +300,7 @@
 		<main id="acoes" class="container mt-5 d-print-none">
 			<section class="row">
 				<div class="col-md-12  text-right">
-                    <button type="submit" class="btn btn btn-success">Agendar minha visita</button>
+                    <button type="submit" class="btn btn-success">Agendar minha visita</button>
 				</div>
 			</section>
 		</main>
@@ -251,8 +318,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
         
+		
         <script>
-            $(document).ready(() => {
+			
+
+		    $(document).ready(() => {
+
+				count = 0;
                 const cpf = $('#cpf')
                         $('#naturalidade').change(() => {
                             const selectSelecionado = $('#naturalidade').children('option:selected').val()
@@ -273,9 +345,59 @@
                                 $('#nome_deficiencia').removeClass('d-none')
                                 // $('#div_tipo_deficiencia').css("display", "block")
                             }
-                        })             
+                        })
+						$('#btn_dependentes').click(() => {
+							count++;
+							if(count == 1){
+                                $('#dependente01').css("display", "flex")
+                            }
+							if(count == 2){
+                                $('#dependente02').css("display", "flex")
+                            }
+                        })                   
             })
+
+// console.log($("#horario_visitacao_data").val());
+			$("#horario_visitacao_data").change(function(){
+				if($("#horario_visitacao_data").val() == "01/12/2021"){
+					$("#01").css('display', 'flex');
+					$("#02").css('display', 'none');
+					$("#03").css('display', 'none');
+					$("#04").css('display', 'none');
+					$("#05").css('display', 'none');
+				}
+				if($("#horario_visitacao_data").val() == "02/12/2021"){
+					$("#01").css('display', 'none');
+					$("#02").css('display', 'flex');
+					$("#03").css('display', 'none');
+					$("#04").css('display', 'none');
+					$("#05").css('display', 'none');
+				}
+				if($("#horario_visitacao_data").val() == "03/12/2021"){
+					$("#01").css('display', 'none');
+					$("#02").css('display', 'none');
+					$("#03").css('display', 'flex');
+					$("#04").css('display', 'none');
+					$("#05").css('display', 'none');
+				}
+				if($("#horario_visitacao_data").val() == "04/12/2021"){
+					$("#01").css('display', 'none');
+					$("#02").css('display', 'none');
+					$("#03").css('display', 'none');
+					$("#04").css('display', 'flex');
+					$("#05").css('display', 'none');
+				}
+				if($("#horario_visitacao_data").val() == "05/12/2021"){
+					$("#01").css('display', 'none');
+					$("#02").css('display', 'none');
+					$("#03").css('display', 'none');
+					$("#04").css('display', 'none');
+					$("#05").css('display', 'flex');
+				}
+			})
         </script>
+
+
 </body>
 
 </html>

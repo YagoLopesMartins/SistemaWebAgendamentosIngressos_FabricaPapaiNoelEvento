@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\HorariosVisitacao;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // HorariosVisitacao::create([
+        //     'uuid' => Str::uuid(),
+        //      'horario_visitacao_data' => '', 
+        //      'horario_visitacao_hora_chegada_estacao' => '', 
+        //      'horario_visitacao_hora_inicio' => '', 
+        //      'horario_visitacao_hora_fim' => '',
+        //      'horario_visitacao_numero_vagas' => '',
+        //      'horario_visitacao_observacoes'=> ''
+        // ]);
     }
 }

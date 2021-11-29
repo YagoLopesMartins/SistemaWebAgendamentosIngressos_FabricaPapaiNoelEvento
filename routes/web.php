@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AgendamentoVisitacaoController;
+use App\Http\Controllers\HorariosVisitacaoController;
+use App\Models\HorariosVisitacao;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +21,12 @@ use Illuminate\Support\Facades\Route;
 // Route::any('agendamento/fabrica',                    [AgendamentoVisitacaoController::class, 'search' ]);
 // Route::delete('agendamento/fabrica/{id}',            [AgendamentoVisitacaoController::class, 'destroy']);
 // Route::get('agendamento/fabrica/{id}',               [AgendamentoVisitacaoController::class, 'show'   ]);
+Route::get('agendamento/fabrica/qrcode',             [AgendamentoVisitacaoController::class, 'qrcode'  ]);
 Route::post('agendamento/fabrica/create',            [AgendamentoVisitacaoController::class, 'store'  ]);
 Route::get('agendamento/fabrica',                    [AgendamentoVisitacaoController::class, 'index'  ]);
+
+
+Route::get('horarios',                    [HorariosVisitacaoController::class, 'index'  ]);
 // Route::put('agendamento/fabrica/editar/{idHorario}',     [AgendamentoVisitacaoController::class, 'updateHorario' ]);
 // Route::delete('agendamento/fabrica/excluir/{idHorario}', [AgendamentoVisitacaoController::class, 'destroyHorario']);
 // Route::post('agendamento/fabrica/create/horario',        [AgendamentoVisitacaoController::class, 'storeHorario']);
