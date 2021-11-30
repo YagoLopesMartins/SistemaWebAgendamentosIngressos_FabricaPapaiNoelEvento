@@ -88,7 +88,7 @@ class AgendamentoVisitacaoController extends Controller
         $visitantes_inscritos_horario = 
                 DB::table("agendamento_visitacaos")
                 ->join("horarios_visitacaos", function($join){
-                    $join->on("agendamento_visitacaos.id", "=", "horarios_visitacaos.id");
+                    $join->on("agendamento_visitacaos.horario_visitacao_id", "=", "horarios_visitacaos.id");
                 })
                 ->where("agendamento_visitacaos.horario_visitacao_id", "=", $id)
                 ->get();
@@ -96,25 +96,13 @@ class AgendamentoVisitacaoController extends Controller
         return view('site.pages.visitacao.listagemInscritos',
             compact('visitantes_inscritos_horario'));
 
-        // return PDF::loadView('site.pages.visitacao.listagemPDF',
-        //     compact('visitantes_inscritos_horario', 'horario'))
-        //      // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
-        //      ->download('listagem-visitantes-fabrica.pdf');
-
         // view()->share('listagemPDF', $visitantes_inscritos_horario);
         // $pdf = PDF::loadView('pdf_view', $visitantes_inscritos_horario);
-
         // return $pdf->download('pdf_file.pdf');
     }
     public function listagemPDF(){
-
         return PDF::loadView('site.pages.visitacao.listagemPDF')
              // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
              ->download('listagem-visitantes-fabrica.pdf');
-
-        // view()->share('listagemPDF', $visitantes_inscritos_horario);
-        // $pdf = PDF::loadView('pdf_view', $visitantes_inscritos_horario);
-
-        // return $pdf->download('pdf_file.pdf');
     }
 }
