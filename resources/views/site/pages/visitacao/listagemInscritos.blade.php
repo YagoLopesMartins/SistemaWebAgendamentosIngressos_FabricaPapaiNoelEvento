@@ -4,14 +4,21 @@
 @section('title', 'Fábrica do Papai Noel 2021')
 
 @section('content_header')
-<h1>Inscritos para a Fabrica do Papai Noel</h1>
+<h1>Inscritos para a Fabrica do Papai Noel - 
+  Dia:  <b>{{$horario->horario_visitacao_data}}</b>  - 
+    Hora: <b>{{$horario->horario_visitacao_hora_inicio}}</b> </h1>
 @stop
 
 @section('content')
-        <a href="/pdf" target="_blank" rel="noopener noreferrer">Imprimir</a>
-        <h1>Inscritos</h1>
-
-        <!---->
+        
+<button>
+    <a href="/pdf/{{$horario->id}}" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-plus-square"></i> 
+        Imprimir
+    </a>
+</button>
+<h1>Inscritos</h1>
+    <!---->
 <div class="card-body">
     <table class="table table-condensed">
         <thead>
@@ -31,8 +38,8 @@
                 <tr>
                     <td>{{ $inscritos->id }}</td>
                     <td>{{ $inscritos->nome_completo }}</td>
-                    <td><b>{{ $inscritos->dependente_nome ?? '' }}</b></td>
-                    <td>{{ $inscritos->dependente2_nome ?? '' }}</td>
+                    <td><b>{{ $inscritos->dependente_nome ?? '-' }}</b></td>
+                    <td>{{ $inscritos->dependente2_nome ?? '-' }}</td>
                     {{-- <td>{{ date('d-m-Y', strtotime($inscritos->horario_visitacao_espacos_data)) }}</td> --}}
                     <td><b>{{ $inscritos->visitou ?? '-'}}</b></td>
                     {{-- <td style="width=10px;">

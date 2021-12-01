@@ -24,5 +24,5 @@ Route::get('horarios',                    [HorariosVisitacaoController::class, '
 
 Route::get('listagem',                    [AgendamentoVisitacaoController::class, 'listagem']);
 Route::get('listagem/inscritos/{id}',     [AgendamentoVisitacaoController::class, 'listagemInscritos']);
-Route::get('pdf',                         [AgendamentoVisitacaoController::class, 'listagemPDF']);
+Route::get('pdf/{id}',                    [AgendamentoVisitacaoController::class, 'listagemPDF']);
 

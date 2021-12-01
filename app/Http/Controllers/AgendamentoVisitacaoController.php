@@ -69,7 +69,6 @@ class AgendamentoVisitacaoController extends Controller
     }
 
     public function listagem(){
-
         $visitantes = $this->repository->all();
         $horarios = $this->horarios_visitacao->all();
 
@@ -92,17 +91,32 @@ class AgendamentoVisitacaoController extends Controller
                 })
                 ->where("agendamento_visitacaos.horario_visitacao_id", "=", $id)
                 ->get();
+        
+        $horario = $this->horarios_visitacao->where('id', $id)->first();
+        //dd($horario);
 
         return view('site.pages.visitacao.listagemInscritos',
-            compact('visitantes_inscritos_horario'));
-
-        // view()->share('listagemPDF', $visitantes_inscritos_horario);
-        // $pdf = PDF::loadView('pdf_view', $visitantes_inscritos_horario);
-        // return $pdf->download('pdf_file.pdf');
+            compact('visitantes_inscritos_horario', 'horario'));
     }
-    public function listagemPDF(){
-        return PDF::loadView('site.pages.visitacao.listagemPDF')
+    public function listagemPDF($id){
+
+        $visitantes_inscritos_horario = 
+                DB::table("agendamento_visitacaos")
+                ->join("horarios_visitacaos", function($join){
+                    $join->on("agendamento_visitacaos.horario_visitacao_id", "=", "horarios_visitacaos.id");
+                })
+                ->where("agendamento_visitacaos.horario_visitacao_id", "=", $id)
+                ->get();
+        
+        $horario = $this->horarios_visitacao->where('id', $id)->first();
+
+        $texto_arquivo_pdf = $horario->horario_visitacao_data.'-'.$horario->horario_visitacao_hora_inicio;
+
+        return PDF::loadView('site.pages.visitacao.listagemPDF', 
+            compact('visitantes_inscritos_horario', 'horario'))
              // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
-             ->download('listagem-visitantes-fabrica.pdf');
+             //->setPaper('a4', 'landscape')
+            //  ->download('DATA-HORA.pdf');
+             ->download($texto_arquivo_pdf.'.pdf');
     }
 }
