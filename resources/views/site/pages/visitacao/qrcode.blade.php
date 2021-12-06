@@ -158,11 +158,10 @@
             <div style="margin: auto; text-align: center;">
                 <img src="https://eventos.cultura.am.gov.br/subtitle.png" width="330px" style="text-align: center;">
             </div>
-
             <h1 class="ui header" style="color: rgb(60, 145, 202); font-size: 16px;">COMPROVANTE DE INSCRIÇÃO</h1>
 
-            <p id="descricao-page-comprovante-text" style="color: rgb(60, 145, 202);"></p>
-            <h1 class="ui header" id="texto-comprovacao"></h1>
+            {{-- <p id="descricao-page-comprovante-text" style="color: rgb(60, 145, 202);"></p>
+            <h1 class="ui header" id="texto-comprovacao"></h1> --}}
 
             <h1 class="ui header" id="texto-comprovacao">Inscrição realizada para
                 {{$row->horario_visitacao_data}} -  {{$row->horario_visitacao_hora_inicio}} 
@@ -171,8 +170,13 @@
                 Importante! Chegar com antecedência na estação, <br> neste horário: 
                <b>{{$row->horario_visitacao_hora_chegada_estacao}}</b>  
             </h1> --}}
+            <center style="padding-top: 16px">
+                <button type="button" onclick="imprimir()">Imprimir comprovante</button>
+            </center>
             <img src="https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl='{{$code}}'">
+         
             <div style="max-width: 500px;">
+               
                 <p id="descricao-page-comprovante-text"
                     style="padding-top: 15px; padding-bottom: 15px; font-size: 20px important!;">Salve este
                     comprovante, você vai precisar apresentar (impresso ou na tela do celular) na entrada do evento
@@ -181,22 +185,22 @@
             </div>
         </div>
 
-        <div id="div-infos">
+        {{-- <div id="div-infos">
             <div class="divider div-transparent"></div>
             <div id="infos-espaco-visitacao">
-                {{-- <h1 class="ui header" id="texto-title">Informações do Evento</h1> --}}
+                {{-- <h1 class="ui header" id="texto-title">Informações do Evento</h1> 
                 <div class="divider div-transparent" style="padding-bottom: 10px;"></div>
                 {{-- <p id="label-espaco-comprovante"><b>Título:</b> {{ $event->name }}</p>
                 <p id="label-espaco-comprovante"><b>Local:</b> {{ $place->name }}</p>
-                <p id="label-horario-comprovante"><b>Data:</b> {{ $DataEspecifica->format('d/m/Y \à\s H\hi\m\i\n') }} --}}
+                <p id="label-horario-comprovante"><b>Data:</b> {{ $DataEspecifica->format('d/m/Y \à\s H\hi\m\i\n') }}
                 </p>
-                {{-- <p id="label-espaco-comprovante"><b>Descrição: </b>{{ $event->information }}</p> --}}
+                {{-- <p id="label-espaco-comprovante"><b>Descrição: </b>{{ $event->information }}</p> 
             </div>
-        </div>
+        </div> --}}
 
-        <div id="div-infos">
+        {{-- <div id="div-infos">
             <div class="divider div-transparent"></div>
-        </div>
+        </div> --}}
 
         <div id="infos-visitante">
             <h1 class="ui header" id="texto-title">Informações do Inscrito</h1>
@@ -260,7 +264,9 @@
             </div>
         </div>
     </div>
-
+    <center style="padding-top: 16px">
+        <button type="button" onclick="imprimir()">Imprimir comprovante</button>
+    </center>
     <footer style="margin: auto; text-align: center;">
         <img src="https://eventos.cultura.am.gov.br/Cartela-natal-100.jpg"
             style="width: 100%; padding: 30px; max-width: 900px;">

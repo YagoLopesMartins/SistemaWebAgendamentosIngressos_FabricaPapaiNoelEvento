@@ -26,7 +26,7 @@ class StoreUpdateAgendamentoVisitacao extends FormRequest
         return [
             'naturalidade'              =>          'nullable|min:3|max:255',
             'cpf'                       =>          'nullable|min:11|max:35',
-            'passaporte'                =>          'nullable|min:3|max:255',
+            'passaporte'                =>          'nullable',
             'nome_completo'             =>          'nullable|min:3|max:255',
             'data_nascimento'           =>          'nullable|min:3|max:255',
             'contato'                   =>          'nullable|min:3|max:255',
