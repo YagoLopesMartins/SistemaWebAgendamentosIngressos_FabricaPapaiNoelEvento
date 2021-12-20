@@ -158,7 +158,8 @@
             <div style="margin: auto; text-align: center;">
                 <img src="https://eventos.cultura.am.gov.br/subtitle.png" width="330px" style="text-align: center;">
             </div>
-            <h1 class="ui header" style="color: rgb(60, 145, 202); font-size: 16px;">COMPROVANTE DE INSCRIÇÃO</h1>
+            <h1 class="ui header" style="color: rgb(60, 145, 202); font-size: 16px;">COMPROVANTE DE INSCRIÇÃO</h1><br>
+            <h1 class="ui header" style="color: rgb(60, 145, 202); font-size: 16px;">ESTAÇÃO FABRICA DO PAPAI NOEL</h1>
 
             {{-- <p id="descricao-page-comprovante-text" style="color: rgb(60, 145, 202);"></p>
             <h1 class="ui header" id="texto-comprovacao"></h1> --}}
@@ -229,7 +230,8 @@
             <div id="div-importantes-observacoes">
                 <b>
                     <p id="label-documento-comprovante"> ● O local de encontro para iniciar a visitação será na Estação da 
-                        Fábrica do Papai Noel, localizada no Largo de São Sebastião (em frente à Splash Pizzaria). 
+                        Fábrica do Papai Noel, localizada no Palácio da Justiça do Amazonas (prédio amarelo) atrás do Teatro Amazonas,
+                        Av. Eduardo Ribeiro com a rua 10 de Julho.
                         A Estação da Fábrica se encontra devidamente sinalizada e será o ponto de partida da visitação;</p>
 
                     <p id="label-documento-comprovante"> ● É necessário chegar com 20 minutos de antecedência no local citado acima;</p>
@@ -248,6 +250,12 @@
                             COVID-19, com o ciclo de vacinação completo - dose única ou as duas doses, tanto para visitantes
                             brasileiros quanto para estrangeiros, exceto menores de idade que ainda não estejam contemplados
                             na faixa etária de vacinação;</p>
+
+                    <p id="label-documento-comprovante"> ● Eu AUTORIZO a Secretaria de Estado de Cultura e Economia Criativa do Amazonas a utilizar a imagem do menor feita 
+                        para o crachá de ajudante do Papai Noel, assim como as demais imagens capturadas durante a visita à Fábrica do Papai Noel, em todo e 
+                        qualquer material entre imagens de vídeo, fotos e voz. A presente autorização é concedida a título gratuito, abrangendo o uso da imagem 
+                        acima mencionada, das seguintes formas: folhetos em geral, anúncios em revistas,  jornais e TV; sites e portais; e redes sociais 
+                        (facebook, instagram, twitter, youtube e demais plataformas digitais de streaming e compartilhamento de dados).</p>
 
                     <h1 class="ui header" id="texto-title">ATENÇÃO:</h1>
                     <p id="label-documento-comprovante"> ● Caso não haja a apresentação do cartão de vacinação, o visitante não poderá realizar a visitação;</p>
