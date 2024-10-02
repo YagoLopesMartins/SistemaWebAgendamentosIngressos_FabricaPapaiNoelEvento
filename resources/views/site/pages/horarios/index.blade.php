@@ -1,3 +1,6 @@
+@extends('adminlte::page')
+
+@section('content')
 
 <!---->
 <div class="card-body">
@@ -38,6 +41,7 @@
             @endforeach
         </tbody>
     </table>
-    
+
 </div>
 <!---->
+@stop

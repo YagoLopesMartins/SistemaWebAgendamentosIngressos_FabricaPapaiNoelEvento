@@ -62,33 +62,33 @@
                         <form action="/agendamento/fabrica/create" method="POST">
                             @csrf
 							<div class="row">
-								
+
 								<div class="col-md-6">
 									<label>Naturalidade</label>
-									<select class="custom-select" 
+									<select class="custom-select"
                                         name="naturalidade" placeholder="Naturalidade"
                                         id="naturalidade" required>
                                         <option value="Brasileiro">Brasileiro</option>
                                         <option value="Brasileiro">Sou Estrangeiro</option>
-                                    </select> 
+                                    </select>
 								</div>
 								<div class="col-md-6">
 									<label>Documento</label>
                                     <input type="text" name="cpf" id="cpf" required
-                                        class="form-control" placeholder="CPF ou Passaporte" 
+                                        class="form-control" placeholder="CPF ou Passaporte"
                                     >
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
 									<label>Nome completo</label>
-									<input type="text" name="nome_completo" 
+									<input type="text" name="nome_completo"
                                         class="form-control" placeholder="Nome completo" required
                                     >
 								</div>
 								<div class="col-md-6">
 									<label>Data Nascimento</label>
-                                    <input type="date" name="data_nascimento" 
+                                    <input type="date" name="data_nascimento"
                                         class="form-control" placeholder="Data Nascimento" required
                                     >
 								</div>
@@ -96,13 +96,13 @@
 							<div class="row">
 								<div class="col-md-6">
 									<label>Contato</label>
-                                    <input type="text" name="contato" 
+                                    <input type="text" name="contato"
                                         class="form-control" placeholder="Contato" required
                                     >
 								</div>
 								<div class="col-md-6">
 									<label>E-mail</label>
-									<input type="email" name="email" 
+									<input type="email" name="email"
                                     class="form-control" placeholder="E-mail" required
                                     >
 								</div>
@@ -110,16 +110,16 @@
 							<br>
 							<div class="row">
 								<div class="col-md-6">
-                                    <select class="form-control" 
+                                    <select class="form-control"
                                         name="deficiente" id="deficiente" required>
-                                        <option value="" selected disabled>Você é uma Pessoa com Deficiência?</option>	
+                                        <option value="" selected disabled>Você é uma Pessoa com Deficiência?</option>
                                         <option value="Não">Não</option>
                                         <option value="Sim">Sim</option>
-                                    </select> 
+                                    </select>
 								</div>
 								<div class="col-md-6">
                                     <input type="text" name="nome_deficiencia" id="nome_deficiencia"
-                                    class="d-none form-control" placeholder="Informe o tipo de deficiencia" 
+                                    class="d-none form-control" placeholder="Informe o tipo de deficiencia"
                                     >
 								</div>
 							</div>
@@ -127,7 +127,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <button type="button" onclick="addDep()"
-									class="btn btn-success" 
+									class="btn btn-success"
 									id="btn_dependentes">Dependentes ?</button>
                                 </div>
                             </div>
@@ -135,20 +135,20 @@
                             <div class="row" id="dependente01" style="display: none">
 								<div class="col-md-3">
 									<label>Nome</label>
-									<input type="text" name="dependente_nome" 
-                                    class="form-control" placeholder="Nome completo" 
+									<input type="text" name="dependente_nome"
+                                    class="form-control" placeholder="Nome completo"
                                     >
 								</div>
                                 <div class="col-md-3">
 									<label>CPF</label>
                                     <input type="text" name="dependente_cpf" id="dependente_cpf"
-                                    class="form-control" placeholder="CPF" 
+                                    class="form-control" placeholder="CPF"
                                     >
 								</div>
                                 <div class="col-md-3">
 									<label>Data Nascimento</label>
-                                    <input type="date" name="dependente_data_nascimento" 
-                                    class="form-control" placeholder="Data Nascimento" 
+                                    <input type="date" name="dependente_data_nascimento"
+                                    class="form-control" placeholder="Data Nascimento"
                                     >
 								</div>
 							</div>
@@ -156,20 +156,20 @@
                             <div class="row" id="dependente02" style="display: none">
 								<div class="col-md-3">
 									<label>Nome</label>
-									<input type="text" name="dependente2_nome" 
-                                    class="form-control" placeholder="Nome completo" 
+									<input type="text" name="dependente2_nome"
+                                    class="form-control" placeholder="Nome completo"
                                     >
 								</div>
                                 <div class="col-md-3">
 									<label>CPF</label>
                                     <input type="text" name="dependente2_cpf" id="dependente2_cpf"
-                                    class="form-control" placeholder="CPF" 
+                                    class="form-control" placeholder="CPF"
                                     >
 								</div>
                                 <div class="col-md-3">
 									<label>Data Nascimento</label>
-                                    <input type="date" name="dependente2_data_nascimento" 
-                                    class="form-control" placeholder="Data Nascimento" 
+                                    <input type="date" name="dependente2_data_nascimento"
+                                    class="form-control" placeholder="Data Nascimento"
                                     >
 								</div>
 							</div>
@@ -189,14 +189,12 @@
 					<div class="row d-print-none">
 						<div class="col-md-12">
 							<small class="text-justify text-secondary">
-								Escolha um horário de sua preferência e agende sua visita. 
+								Escolha um horário de sua preferência e agende sua visita.
                                 {{-- Seleciona uma data e um horário disponível para marcar --}}
 							</small>
 						</div>
 					</div>
-				
 					<div class="row mt-4 d-print-none">
-						
 						<div class="col-md-6 d-print-none">
 							<div class="row">
 								<div class="col-md-12">
@@ -207,24 +205,19 @@
 								<div class="col-md-12">
                                     <select class="form-control" name="horario_visitacao_id" id="horario_visitacao_id">
 										@foreach($horarios_visitacao as $horario)
-											
-												<option value="{{ $horario->id  }}"> 
-													{{$horario->horario_visitacao_data}} - 
-													{{$horario->horario_visitacao_hora_inicio}} 
+												<option value="{{ $horario->id  }}">
+													{{$horario->horario_visitacao_data}} -
+													{{$horario->horario_visitacao_hora_inicio}}
 													( {{ $horario->horario_visitacao_numero_vagas}} vagas )
 												</option>
-											
                                         @endforeach
-                                    </select> 
+                                    </select>
 								</div>
 							</div>
-						
-							
-							
 						</div>
 					</div>
 				</section>
-			{{-- </form> --}}    
+			{{-- </form> --}}
 		</main>
 		<main id="acoes" class="container mt-5 d-print-none">
 			<section class="row">
@@ -237,7 +230,7 @@
         <footer class="my-5 pt-5 text-muted text-center text-small d-print-none">
 			<p class="mb-1">Secretaria de Cultura e Economia Criativa</p>
 			<p class="mb-1">Desenvolvimento: Inovação e Tecnologia Audivisual</p>
-			<p><small>Navegadores suportados: Google Chrome, Microsoft Edge, Firefox</small></p>				
+			<p><small>Navegadores suportados: Google Chrome, Microsoft Edge, Firefox</small></p>
 		</footer>
 
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -246,16 +239,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-        
-		
+
+
         <script>
-			
-
 		    $(document).ready(() => {
-
 				count = 0;
-             
-                       
                         $('#deficiente').change(() => {
                             const selectSelecionado = $('#deficiente').children('option:selected').val()
                             if(selectSelecionado === 'Não'){
@@ -273,10 +261,9 @@
 							if(count == 2){
                                 $('#dependente02').css("display", "flex")
                             }
-                        })                   
+                        })
             })
 
-// console.log($("#horario_visitacao_data").val());
 			$("#horario_visitacao_data").change(function(){
 				if($("#horario_visitacao_data").val() == "01/12/2021"){
 					$("#01").css('display', 'flex');
@@ -315,8 +302,5 @@
 				}
 			})
         </script>
-
-
 </body>
-
 </html>

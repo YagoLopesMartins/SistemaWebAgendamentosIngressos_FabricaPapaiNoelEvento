@@ -18,8 +18,6 @@
                 <th>HORA CHEGADA</th>
                 <th>HORA INÍCIO</th>
                 <th>HORA FIM</th>
-                {{-- <th>VAGAS</th>
-                <th>TOTAL DE INSCRITOS</th> --}}
                 <th width="270">Ações</th>
             </tr>
         </thead>
@@ -29,7 +27,6 @@
                     <td>{{ $horario->id }}</td>
                     <td><b>{{ $horario->horario_visitacao_data }}</b></td>
                     <td>{{ $horario->horario_visitacao_hora_chegada_estacao }}</td>
-                    {{-- <td>{{ date('d-m-Y', strtotime($horario->horario_visitacao_espacos_data)) }}</td> --}}
                     <td><b>{{ $horario->horario_visitacao_hora_inicio }}</b></td>
                     <td>{{ $horario->horario_visitacao_hora_fim }}</td>
                     <td style="width=10px;">
@@ -41,7 +38,7 @@
             @endforeach
         </tbody>
     </table>
-    
+
 </div>
 <!---->
 

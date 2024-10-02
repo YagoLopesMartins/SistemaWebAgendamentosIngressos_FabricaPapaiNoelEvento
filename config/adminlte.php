@@ -255,14 +255,32 @@ return [
         // ],
         ['header' => 'MENU'],
         [
-            'text' => 'Agendamento',
-            'url'  => 'agendamento/fabrica',
+            'text' => 'Formulários',
             'icon' => 'fas fa-fw fa-user',
+                'submenu' => [
+                    [
+                        'text' => 'Agendamento',
+                        'url'  => 'agendamento/fabrica',
+                        'icon' => 'fas fa-fw fa-user',
+                    ],
+                ]
         ],
         [
-            'text' => 'Listagem inscritos',
+            'text' => 'Inscritos',
             'url'  => 'listagem',
             'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Listagem',
+                    'url'  => 'listagem',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                [
+                    'text' => 'Horários',
+                    'url'  => 'horarios',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+            ]
         ],
         // [
         //     'text' => 'change_password',
