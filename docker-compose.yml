@@ -1,0 +1,30 @@
+services:
+
+    laravel-docker-sec1:
+        container_name: laravel-docker_sec1
+        build:
+            context: .
+        volumes:
+            - ./:/var/www/html
+        ports:
+            - 9000:80
+        environment:
+            - APACHE_DOCUMENT_ROOT=/var/www/html/public
+        depends_on:
+            - mysql_db
+        entrypoint: [ "/var/www/html/entrypoint.sh" ]
+
+    mysql_db:
+        image: mysql:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: laravel_docker_sec1
+        ports:
+            - 3306:3306
+
+    phpmyadmin:
+        image: phpmyadmin:latest
+        ports:
+            - 9001:80
+        environment:
+            - PMA_ARBITRARY=1
