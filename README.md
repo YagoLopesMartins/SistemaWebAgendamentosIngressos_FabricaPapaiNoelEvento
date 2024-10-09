@@ -2,23 +2,23 @@
 
 ## Overview
 
-- Parecido com a reserva de poltrona em salas de cinema só que para vagas em eventos culturais
-- O Administrador do sistema define:
+- Parecido com a reserva de poltronas em salas de cinemas ... só que adaptaado para vagas em **eventos culturais**
+- O **Administrador** do sistema define:
   - Datas, horários e quantidade de vagas dos eventos
   - Acessa a lista dos inscritos por horário 
   - Imprime a lista de inscritos
-- O usuário: 
+- O **usuário**: 
   - Acessa o formulário do evento
-  - Informa seus dados válidos
-  - Se tiver dependentes pode adicionar até 2 pessoas por pessoa
+  - Informa seus dados (devem ser válidos)
+  - Se tiver dependentes poderá adicionar até 2 dependentes por pessoa
   - Escolhe um horário disponivel
-  - Recebe seu "ingresso" com seu agendamento 
-- O sistema:
+  - Recebe seu **"ingresso"** com seu agendamento 
+- O **sistema**:
   - Processa o formulário de inscrição
-  - Valida os dados informados (email ou usuário já cadastrado par ao horário)
-  - Se tudo certo, gera um acesso com  QR-Code
-  - Organiza os incritos por horário em lista para o Admin acessar e imprimir a relação do dia
-  - Gerar PDF com lista de inscritos
+  - Valida os dados informados (e-mail válido, usuário já cadastrado para o horário etc)
+  - Se tudo certo, gera um acesso com  **QR-Code** (comprovante de agendamento)
+  - Organiza os incritos por horário em listas para o Administrador acessar e imprimir a relação do dia
+  - Gera PDF com a lista de inscritos
 
 ## Tecnologias
   - PHP >= 7.1
@@ -37,8 +37,8 @@
   
 1. Clone ou faça o download do repositório
     ```
-    $ git clone https://github.com/YagoLopesMartins/SEC_FabricaPapaiNoelSistemaWebAgendamentos.git
-        cd SEC_FabricaPapaiNoelSistemaWebAgendamentos
+    $ git clone https://github.com/YagoLopesMartins/SistemaWebAgendamentosIngressos_FabricaPapaiNoelEvento.git
+        cd SistemaWebAgendamentosIngressos_FabricaPapaiNoelEvento
     ```
 2. Renomeie o arquivo .env.example para .env
   
